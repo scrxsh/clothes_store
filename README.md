@@ -9,7 +9,7 @@ El proyecto se enfocará en una tienda de ropa.
 - **Proveedores ->** Apartado donde se registran los proveedores que traen mercancia a la empresa
 
 # Diseño inicial
-**Aplicación web cuyas funcionalidades son: **
+**Aplicación web cuyas funcionalidades son:**
 
 - Conexión mediante BD en el gestor de BD de MYSQL WORKBENCH 8.0 CE para el registro de Inventario, Usuarios, Proveedores y Usuarios.
 - En la parte del Backend se creará una API REST con el framework de JAVA, Spring Boot y sus dependencias: Spring Web, Spring Data JPA, MYSQL Driver y Lombok.
