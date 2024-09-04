@@ -1,5 +1,5 @@
 # clothes_store
-El proyecto se enfocará en una tienda de ropa. 
+El proyecto se enfocará en la gestión de ventas de una tienda de ropa. 
 
 # Modulos del proyecto:
 
