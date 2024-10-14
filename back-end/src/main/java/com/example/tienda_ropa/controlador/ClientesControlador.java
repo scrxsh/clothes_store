@@ -25,8 +25,8 @@ public class ClientesControlador {
         return clientesServices.crearClientes(clientes);
     }
 
-    @PutMapping("/actualizar2")
-    public ClientesModel actualizar2(@RequestBody ClientesModel clientes){
+    @PutMapping("/actualizar")
+    public ClientesModel actualizar(@RequestBody ClientesModel clientes){
         return clientesServices.actualizarClientes(clientes);
     }
 
