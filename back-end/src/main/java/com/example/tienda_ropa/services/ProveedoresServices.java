@@ -22,7 +22,7 @@ public class ProveedoresServices {
     }
 
     public ProveedoresModel actualizarProveedores(ProveedoresModel proveedores){
-        if (proveedores.getIdProveedores() != null){
+        if (proveedores.getId() != null){
             return proveedoresRepository.save(proveedores);
         }return null;
     }

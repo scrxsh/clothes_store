@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Empleados")
+@Table(name = "empleados")
 public class EmpleadosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpleado;
+    private Long id;
     @Column(nullable = false, length = 100)
     private String nombre;
     @Column(nullable = false)

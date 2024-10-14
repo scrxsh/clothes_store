@@ -22,7 +22,7 @@ public class ClientesServices {
     }
 
     public ClientesModel actualizarClientes(ClientesModel clientes){
-        if (clientes.getIdCliente() != null){
+        if (clientes.getId() != null){
             return clientesRepository.save(clientes);
         }return null;
     }

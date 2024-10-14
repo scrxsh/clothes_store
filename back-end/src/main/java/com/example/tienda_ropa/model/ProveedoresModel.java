@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Proveedores")
+@Table(name = "proveedores")
 public class ProveedoresModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProveedores;
-    @Column(nullable = false, length = 200)
+    private Long id;
+    @Column(nullable = false, length = 200, name = "nombre_empresa")
     private String nombreEmpresa;
     @Column(nullable = false, length = 100)
     private String producto;

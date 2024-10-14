@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Ventas")
+@Table(name = "ventas")
 public class VentasModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVenta;
+    private Long id;
     @Column(nullable = false, length = 150)
-    private String Producto;
+    private String producto;
     @Column(nullable = false)
     private int precio;
     @Column(nullable = false)

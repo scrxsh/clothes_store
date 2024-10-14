@@ -22,7 +22,7 @@ public class VentasServices {
     }
 
     public VentasModel actualizarVentas(VentasModel ventas){
-        if (ventas.getIdVenta() != null){
+        if (ventas.getId() != null){
             return ventasRepository.save(ventas);
         }return null;
     }

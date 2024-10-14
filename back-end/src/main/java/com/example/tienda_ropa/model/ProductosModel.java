@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Productos")
+@Table(name = "productos")
 public class ProductosModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProductos;
+    private Long idPrenda;
+    @Column(nullable = false, name = "img_prenda")
+    private String imgPrenda;
     @Column(nullable = false, length = 100)
     private String nombre;
     @Column(nullable = false)
@@ -27,7 +29,5 @@ public class ProductosModel {
     private String tipo;
     @Column(nullable = false, length = 100)
     private String talla;
-    @Column(nullable = false)
-    private Long codigoPrenda;
 
 }

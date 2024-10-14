@@ -22,7 +22,7 @@ public class EmpleadosServices {
     }
 
     public EmpleadosModel actualizarEmpleados(EmpleadosModel empleados){
-        if (empleados.getIdEmpleado() != null){
+        if (empleados.getId() != null){
             return empleadosRepository.save(empleados);
         }return null;
     }
