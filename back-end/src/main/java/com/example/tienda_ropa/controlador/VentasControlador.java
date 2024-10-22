@@ -21,8 +21,8 @@ public class VentasControlador {
     }
 
     @PostMapping("/crear")
-    public VentasModel crear(@RequestBody VentasModel ventas){
-        return ventasServices.crearVentas(ventas);
+    public VentasModel crear(@RequestBody VentasModel ventas, @RequestParam Long id_producto, @RequestParam Long id_cliente, @RequestParam Long id_empleado){
+        return ventasServices.crearVentas(ventas,id_producto,id_cliente,id_empleado);
     }
 
     @PutMapping("/actualizar")

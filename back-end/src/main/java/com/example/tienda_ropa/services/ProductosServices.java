@@ -1,13 +1,16 @@
 package com.example.tienda_ropa.services;
 
 import com.example.tienda_ropa.model.ProductosModel;
+import com.example.tienda_ropa.model.VentasModel;
 import com.example.tienda_ropa.repository.ProductosRepository;
+import com.example.tienda_ropa.repository.ProveedoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,7 +19,10 @@ public class ProductosServices {
     @Autowired
     ProductosRepository productosRepository;
     @Autowired
+    ProveedoresRepository proveedoresRepository;
+    @Autowired
     private UploadService uploadService;
+
 
     String url = "http://localhost:8080/uploads/images/";
 
@@ -28,15 +34,22 @@ public class ProductosServices {
         return productos;
     }
 
-    public ProductosModel crearProducto(ProductosModel producto, MultipartFile file) throws IOException {
+    public List<VentasModel> obtenerProductoVendido(Long id_producto){
+        ProductosModel producto = productosRepository.findById(id_producto).orElse(null);
+        return Objects.requireNonNull(producto).getVentasList();
+    }
+
+    public ProductosModel crearProducto(ProductosModel producto, MultipartFile file, Long id_proveedor) throws IOException {
+        producto.setProveedor(proveedoresRepository.findById(id_proveedor).orElse(null));
         comprobacionImagen(file);
         String imgPrenda = uploadService.guardarArchivo(file);
         producto.setImgPrenda(imgPrenda);
         return productosRepository.save(producto);
     }
 
-    public ProductosModel actualizarProducto(ProductosModel producto, MultipartFile file) throws IOException{
-        if (producto.getIdPrenda() != null){
+    public ProductosModel actualizarProducto(ProductosModel producto, MultipartFile file, Long id_proveedor) throws IOException{
+        if (producto.getId() != null){
+            producto.setProveedor(proveedoresRepository.findById(id_proveedor).orElse(null));
             comprobacionImagen(file);
             String urlImg = uploadService.guardarArchivo(file);
             producto.setImgPrenda(urlImg);

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,8 +17,6 @@ public class VentasModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 150)
-    private String producto;
     @Column(nullable = false)
     private int precio;
     @Column(nullable = false)
@@ -25,5 +25,18 @@ public class VentasModel {
     private int unidades;
     @Column(nullable = false)
     private Long total;
+    @Column (nullable = false, name = "fecha_venta")
+    private Date fechaVenta;
 
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    ProductosModel producto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    ClientesModel cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_empleado")
+    EmpleadosModel empleado;
 }

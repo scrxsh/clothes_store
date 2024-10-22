@@ -1,9 +1,13 @@
 package com.example.tienda_ropa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,11 +21,17 @@ public class EmpleadosModel {
     private Long id;
     @Column(nullable = false, length = 100)
     private String nombre;
-    @Column(nullable = false)
-    private Long cedula;
-    @Column(nullable = false, length = 150)
+    @JsonProperty("n_documento")
+    @Column(nullable = false, name = "n_documento")
+    private Long nDocumento;
+    @Column(nullable = false, length = 45)
     private String email;
-    @Column(nullable = false)
-    private Long telefono;
+    @Column(nullable = false, length = 10)
+    private String telefono;
+    @Column(nullable = false, length = 45)
+    private String direccion;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "empleado")
+    List<VentasModel> ventasRealizadas;
 }
