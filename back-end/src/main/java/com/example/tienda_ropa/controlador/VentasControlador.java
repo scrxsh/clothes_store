@@ -1,8 +1,15 @@
 package com.example.tienda_ropa.controlador;
 
 import com.example.tienda_ropa.model.VentasModel;
+import com.example.tienda_ropa.services.JasperReportService;
 import com.example.tienda_ropa.services.VentasServices;
+import jakarta.annotation.Resource;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +21,8 @@ public class VentasControlador {
 
     @Autowired
     VentasServices ventasServices;
+    @Autowired
+    JasperReportService jasperReportService;
 
     @GetMapping("/todos")
     public List<VentasModel> obtenerTodo(){
@@ -36,5 +45,24 @@ public class VentasControlador {
     }
 
 
+    @GetMapping("/export/pdf/{id}")
+    public ResponseEntity<byte[]> exportPDFById(@PathVariable Long id) {
+        try {
+            byte[] reportContent = jasperReportService.exportVentaPDFById(id);
 
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_PDF);
+            headers.setContentDispositionFormData("filename", "venta_" + id + ".pdf");
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .body(reportContent);
+
+        } catch (JRException e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
 }
+
+
+

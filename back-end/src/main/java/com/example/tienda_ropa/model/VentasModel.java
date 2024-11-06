@@ -18,8 +18,6 @@ public class VentasModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private int precio;
-    @Column(nullable = false)
     private Byte iva;
     @Column(nullable = false)
     private int unidades;

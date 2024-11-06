@@ -37,8 +37,8 @@ public class ProductosControlador {
             return new ResponseEntity<>(productosServices.crearProducto(producto, file,id_proveedor), HttpStatus.CREATED);
         }catch (IllegalArgumentException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }catch (IOException e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

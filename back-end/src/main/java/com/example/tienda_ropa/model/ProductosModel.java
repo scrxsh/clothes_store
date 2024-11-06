@@ -36,6 +36,14 @@ public class ProductosModel {
     private String tipo;
     @Column(nullable = false, length = 1)
     private char talla;
+    @Column(name = "precio_final", nullable = false)
+    private Float precioFinal;
+
+    @PrePersist
+    @PreUpdate
+    void calculoPrecioFinal(){
+        this.precioFinal = precio + (precio * pIva);
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_proveedor")

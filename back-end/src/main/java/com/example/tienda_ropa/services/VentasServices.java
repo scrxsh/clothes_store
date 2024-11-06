@@ -5,7 +5,9 @@ import com.example.tienda_ropa.repository.ClientesRepository;
 import com.example.tienda_ropa.repository.EmpleadosRepository;
 import com.example.tienda_ropa.repository.ProductosRepository;
 import com.example.tienda_ropa.repository.VentasRepository;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,5 +44,6 @@ public class VentasServices {
     public void borrarVentas(Long id){
         ventasRepository.deleteById(id);
     }
+
 
 }

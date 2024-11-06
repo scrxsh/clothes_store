@@ -170,7 +170,7 @@ nav img.logo{
 nav .search-bar{
     background-color: var(--color-light);
     padding: var(--padding-2) var(--card-padding);
-    width: 32vw;
+    width: 35vw;
     border-radius: var(--border-radius-2);
     display: flex;
     align-items: center;
@@ -260,7 +260,6 @@ main aside{
     justify-content: space-between;
     height: 88vh;   
 }
-/* Solo aparecera en responsive*/
 
 main aside button#close-btn{
     display: none;
@@ -305,6 +304,18 @@ main aside .sidebar a:hover i{
 
 main aside .sidebar h4{
     font-weight: 500;
+}
+
+main section .section_ropa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main section .section_ropa .gallery{
+    display: grid;
+    gap: 20px;
+    width: 90%;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 
@@ -358,18 +369,10 @@ main aside .sidebar h4{
     main aside .sidebar{
         margin-top: 4rem;
     }
-    main aside .updates{
-        display: none;
+    main section .section_ropa .gallery{
+        grid-template-columns: repeat(2, 1fr);
     }
-    main section.middle .cards{
-        grid-template-columns: 1fr 1fr;
-    }
-    main canvas{
-        margin: 3rem 0 1rem;
-    }
-    main section.right .recent-transactions{
-        margin-top: 3rem;
-    }
+
 }
 
 /*-------------MEDIA QUIERES TELEFONOS------------*/
@@ -391,5 +394,39 @@ main aside .sidebar h4{
         margin-top: 3rem;
         gap: 1.4rem;
     }
+    main section .section_ropa .gallery{
+        grid-template-columns: repeat(1, 1fr);
+    }
 
+}
+
+/*Otros estilos/*
+/* From Uiverse.io by Gautammsharma */ 
+.comic-button {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #6479d8;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.comic-button:hover {
+    background-color: #fff;
+    color: #6479d8;;
+    border: 2px solid #6479d8;
+    box-shadow: 5px 5px 0px #6479d8;
+}
+
+.comic-button:active {
+    background-color: #eeeddc;
+    box-shadow: none;
+    transform: translateY(4px);
 }
