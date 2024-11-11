@@ -1,0 +1,398 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="clothe" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="752a9ea4-fb7f-4509-8364-48cabfede7b1">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <style name="Table_TH" mode="Opaque" backcolor="#A3C4E3">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 1_CH" mode="Opaque" backcolor="#EDEFFA">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#787878"/>
+            <topPen lineWidth="0.5" lineColor="#787878"/>
+            <leftPen lineWidth="0.5" lineColor="#787878"/>
+            <bottomPen lineWidth="0.5" lineColor="#787878"/>
+            <rightPen lineWidth="0.5" lineColor="#787878"/>
+        </box>
+    </style>
+    <style name="Table 2_CH" mode="Opaque" backcolor="#EDEFFA">
+        <box>
+            <pen lineWidth="0.5" lineColor="#787878"/>
+            <topPen lineWidth="0.5" lineColor="#787878"/>
+            <leftPen lineWidth="0.5" lineColor="#787878"/>
+            <bottomPen lineWidth="0.5" lineColor="#787878"/>
+            <rightPen lineWidth="0.5" lineColor="#787878"/>
+        </box>
+    </style>
+    <style name="Table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#787878"/>
+            <topPen lineWidth="0.5" lineColor="#787878"/>
+            <leftPen lineWidth="0.5" lineColor="#787878"/>
+            <bottomPen lineWidth="0.5" lineColor="#787878"/>
+            <rightPen lineWidth="0.5" lineColor="#787878"/>
+        </box>
+    </style>
+    <dataset name="ds_factura" uuid="7538237c-405c-43bd-9fd3-0ecd7ee275c5">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+        <query language="SQL"><![CDATA[]]></query>
+        <field name="producto.nombre" class="java.lang.String"/>
+        <field name="unidades" class="java.lang.Integer"/>
+        <field name="producto.precio" class="java.lang.Float"/>
+        <field name="producto.PIva" class="java.lang.Float"/>
+    </dataset>
+    <parameter name="ds" class="net.sf.jasperreports.engine.data.JRBeanArrayDataSource"/>
+    <query language="sql"><![CDATA[]]></query>
+    <field name="id" class="java.lang.Long"/>
+    <field name="cliente.nombre" class="java.lang.String"/>
+    <field name="cliente.NDocumento" class="java.lang.Long"/>
+    <field name="cliente.telefono" class="java.lang.String"/>
+    <field name="cliente.email" class="java.lang.String"/>
+    <field name="fechaVenta" class="java.util.Date"/>
+    <field name="empleado.nombre" class="java.lang.String"/>
+    <field name="producto.nombre" class="java.lang.String"/>
+    <field name="unidades" class="java.lang.Integer"/>
+    <field name="producto.precio" class="java.lang.Float"/>
+    <field name="producto.PIva" class="java.lang.Float"/>
+    <variable name="Subtotal" calculation="Sum" class="java.lang.Double">
+        <expression><![CDATA[$F{producto.precio}*$F{unidades}]]></expression>
+        <initialValueExpression><![CDATA[0]]></initialValueExpression>
+    </variable>
+    <variable name="totalIva" calculation="Sum" class="java.lang.Double">
+        <expression><![CDATA[$F{producto.precio}*$F{producto.PIva}]]></expression>
+        <initialValueExpression><![CDATA[0]]></initialValueExpression>
+    </variable>
+    <variable name="total" class="java.lang.Double">
+        <expression><![CDATA[$V{Subtotal}+$V{totalIva}]]></expression>
+        <initialValueExpression><![CDATA[0]]></initialValueExpression>
+    </variable>
+    <background splitType="Stretch"/>
+    <title height="120" splitType="Stretch">
+        <element kind="image" uuid="2b827989-e8d7-4337-9064-14d590e46d25" mode="Transparent" x="10" y="50" width="110" height="40">
+            <expression><![CDATA["https://www.dian.gov.co/imagenes/Logo_Dian_Derecho.png"]]></expression>
+            <property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+            <box>
+                <pen lineWidth="0.5" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="58d15027-2679-4a51-972e-3536eab8f6fa" mode="Opaque" x="130" y="50" width="110" height="20" forecolor="#030303" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" italic="false" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Empresa:]]></text>
+            <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="19a75fd7-8e7f-4c52-9e4a-69e3974a4f30" mode="Opaque" x="130" y="70" width="110" height="20" forecolor="#030303" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[NIT:]]></text>
+            <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="eaab5e8b-d496-4e9f-9041-9de4176bb293" mode="Opaque" x="130" y="90" width="110" height="20" forecolor="#030303" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Dirección:]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="f86ee091-023e-4cf9-a040-cafbf2a2e074" mode="Opaque" x="327" y="50" width="110" height="20" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Telefono:]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="8615a06a-f0ee-416f-8ea5-69e594f2b585" mode="Opaque" x="327" y="70" width="110" height="20" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Correo Eléctronico:]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="417dbcbf-f130-42bf-9234-891c477cd0d9" mode="Opaque" x="327" y="90" width="110" height="20" backcolor="#EDEFFA" fontName="SansSerif" fontSize="10.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Fecha de expedición:]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="ff7135ec-c734-4f85-b73a-bc4b4f642849" mode="Opaque" x="240" y="50" width="70" height="20" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Tienda Ropa]]></text>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="ddc75083-e195-4d47-8520-02b709c25d56" mode="Opaque" x="240" y="70" width="70" height="20" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[12345678]]></text>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="7ad2dc52-d3c8-409f-a7e4-f3f2d2916d50" mode="Opaque" x="240" y="90" width="70" height="20" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Chiquinquirá]]></text>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="da71d639-d2a9-4d86-8de6-ab8d0f7e76e2" x="437" y="50" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[3212579924]]></text>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="8b9f94ef-9ae6-4006-a7e4-6f77b6360359" x="437" y="70" width="100" height="20" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[tienda@gmail.com]]></text>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="textField" uuid="99c94f0e-2623-4cfa-a889-335dc21438d3" x="437" y="90" width="100" height="20" pattern="dd/mm/yyyy - HH:mm" hTextAlign="Center" vTextAlign="Middle">
+            <expression><![CDATA[new java.util.Date()]]></expression>
+            <box>
+                <pen lineWidth="0.5" lineStyle="Solid" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="0db447f8-1cda-4ce4-a06d-391e219dc009" mode="Transparent" x="10" y="90" width="50" height="20" fontName="SansSerif" fontSize="13.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[#]]></text>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <box>
+                <pen lineWidth="0.5" lineColor="#787878"/>
+            </box>
+        </element>
+        <element kind="staticText" uuid="fcf23eda-8da5-4548-a264-1073e0f2de3a" x="0" y="10" width="560" height="30" fontSize="20.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Factura Electrónica de Venta]]></text>
+        </element>
+        <element kind="textField" uuid="2e546b83-ae8f-4110-90e6-606c437fbe84" mode="Transparent" x="60" y="90" width="60" height="20" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+            <expression><![CDATA[$F{id}]]></expression>
+            <box>
+                <pen lineWidth="0.5" lineColor="#787878"/>
+            </box>
+        </element>
+    </title>
+    <columnHeader height="56" splitType="Stretch">
+        <element kind="staticText" uuid="78d8d883-bc95-4254-b099-16e694703fba" mode="Opaque" x="10" y="15" width="527" height="33" backcolor="#EDEFFA" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+            <text><![CDATA[Detalle de venta]]></text>
+            <box>
+                <pen lineWidth="0.5" lineColor="#787878"/>
+            </box>
+        </element>
+    </columnHeader>
+    <detail>
+        <band height="166" splitType="Stretch">
+            <element kind="rectangle" uuid="0b5ff8a7-e7dd-4fb9-8c9c-832cc5aea25a" x="10" y="0" width="527" height="100">
+                <pen lineWidth="0.5" lineColor="#787878"/>
+            </element>
+            <element kind="staticText" uuid="772af4f1-7921-4e8a-962f-f87a74d263d9" mode="Opaque" x="20" y="10" width="100" height="20" forecolor="#030303" bold="true" vTextAlign="Middle">
+                <text><![CDATA[Nombre del cliente:]]></text>
+            </element>
+            <element kind="staticText" uuid="a4cbc8da-85d8-498e-9eb8-417fb86c67a5" x="310" y="40" width="90" height="20" bold="true" vTextAlign="Middle">
+                <text><![CDATA[Fecha de compra:]]></text>
+            </element>
+            <element kind="staticText" uuid="558f7f3a-cd77-4be6-b489-2bbb2c52c65d" x="20" y="40" width="90" height="20" bold="true" hTextAlign="Left" vTextAlign="Middle">
+                <text><![CDATA[N. Identificación:]]></text>
+            </element>
+            <element kind="staticText" uuid="212b3f3c-8858-4306-90c9-15a780858e2c" x="310" y="10" width="100" height="20" bold="true" vTextAlign="Middle">
+                <text><![CDATA[Correo Eléctronico:]]></text>
+            </element>
+            <element kind="staticText" uuid="ae0d0237-5527-4953-a6ff-ec768749b8f9" x="310" y="70" width="70" height="20" bold="true" vTextAlign="Middle">
+                <text><![CDATA[Atendido por:]]></text>
+            </element>
+            <element kind="staticText" uuid="89cdb7e8-46e0-4d51-aa56-b9ce3c58ceb3" x="20" y="70" width="50" height="20" bold="true" vTextAlign="Middle">
+                <text><![CDATA[Telefóno:]]></text>
+            </element>
+            <element kind="textField" uuid="e82e6ef2-4e6c-4d66-86f9-f945ca87b10a" x="120" y="10" width="100" height="20" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{cliente.nombre}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d887ae5f-bf77-4d75-a9e1-6de0e49c6413"/>
+            </element>
+            <element kind="textField" uuid="50e69097-b22e-4d3c-94b1-7c6ec994ad16" x="110" y="40" width="120" height="20" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{cliente.NDocumento}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="458f38cb-786d-4aa2-a98e-ab6719d0f311"/>
+            </element>
+            <element kind="textField" uuid="dc18b0a9-7fb1-44a7-9fbe-3554abb0c7f7" x="70" y="70" width="100" height="20" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{cliente.telefono}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a4c5538-22ab-4e22-a9f7-ad61eae2ae98"/>
+            </element>
+            <element kind="textField" uuid="69f1f42f-f3d5-4d3f-934e-cb0867f43354" x="410" y="10" width="100" height="20" vTextAlign="Middle">
+                <expression><![CDATA[$F{cliente.email}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2dceb82c-c550-405b-b66a-40510fb9435e"/>
+            </element>
+            <element kind="textField" uuid="ca748c71-ffa8-4d8f-80f4-d1edb2f35e8d" x="400" y="40" width="100" height="20" pattern="dd/MM/yyyy" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$F{fechaVenta}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e9e8b77e-0e6b-4684-bcdc-886d2b471edd"/>
+            </element>
+            <element kind="textField" uuid="0da8d435-bd63-4233-920a-fc620962f724" x="380" y="70" width="100" height="20" vTextAlign="Middle">
+                <expression><![CDATA[$F{empleado.nombre}]]></expression>
+                <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1a5e236-3d58-4c6e-b217-73e1ce056e68"/>
+            </element>
+            <element kind="component" uuid="d573b807-5132-4996-98f4-9ea2a09bb6f3" mode="Transparent" x="10" y="100" width="527" height="60">
+                <component kind="table">
+                    <datasetRun uuid="ffcf07ee-a7c0-4bf3-a94e-a9334fe526e9" subDataset="ds_factura">
+                        <dataSourceExpression><![CDATA[$P{ds}]]></dataSourceExpression>
+                    </datasetRun>
+                    <column kind="single" uuid="37164ea0-4551-4dcb-b95f-00528a89ff58" width="120">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="fc73c271-139c-4b4a-81f4-454f895ce27c" x="0" y="0" width="120" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[Detalle]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="edf06be5-7111-456b-9724-12db50c674d9" x="0" y="0" width="120" height="30" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{producto.nombre}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+                    </column>
+                    <column kind="single" uuid="92e4bfc6-8025-4574-94ff-71eea785b365" width="50">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="45b9ece9-cc58-4e8f-8847-da7ac6f5fff4" x="0" y="0" width="50" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[Cant.]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="3e16d46b-5a1b-4b2b-9614-5054a1499420" x="0" y="0" width="50" height="30" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{unidades}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+                    </column>
+                    <column kind="single" uuid="a356101d-c315-46c5-9417-5fb0a7c1a9f8" width="110">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="fb115efc-bb59-4779-b960-d9a04372f5a6" x="0" y="0" width="110" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[Valor Unitario]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="9cf5fc21-fcd5-4e4f-93b9-c6996b08b12d" x="0" y="0" width="110" height="30" pattern="#0.00" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{producto.precio}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+                    </column>
+                    <column kind="single" uuid="069d6857-326a-4e31-973c-bed0815820c3" width="60">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="fd437265-6ef3-47ed-9d4e-5712c29c5baa" x="0" y="0" width="60" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[IVA %]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="69919c1b-3f49-47c5-a926-85546a553494" x="0" y="0" width="60" height="30" pattern="#,##0.00%" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{producto.PIva}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+                    </column>
+                    <column kind="single" uuid="a07a20e0-819a-4f16-9145-15eef4c6b2fd" width="70">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="cf41dc13-ff42-483b-bd98-1bf1f43fc1cb" x="0" y="0" width="70" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[Valor IVA]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="21ce04a7-27a3-4eae-a4e5-ad0d0acd2154" x="0" y="0" width="70" height="30" pattern="#0.00" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{producto.precio}*$F{producto.PIva}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+                    </column>
+                    <column kind="single" uuid="a8122541-827c-4778-8667-ae841d75c901" width="117">
+                        <columnHeader height="30" rowSpan="1" style="Table 2_CH">
+                            <element kind="staticText" uuid="392426c8-5c7c-4f97-9452-6bd09357f285" x="0" y="0" width="117" height="30" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                                <text><![CDATA[Subtotal sin IVA]]></text>
+                            </element>
+                        </columnHeader>
+                        <detailCell height="30" style="Table 2_TD">
+                            <element kind="textField" uuid="7c27fc73-4096-488e-96c5-e7ea44652b23" x="0" y="0" width="117" height="30" pattern="#0.00" hTextAlign="Center" vTextAlign="Middle">
+                                <expression><![CDATA[$F{producto.precio}*$F{unidades}]]></expression>
+                            </element>
+                        </detailCell>
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+                    </column>
+                </component>
+                <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+                <property name="com.jaspersoft.studio.table.style.table_header" value="Table 2_TH"/>
+                <property name="com.jaspersoft.studio.table.style.column_header" value="Table 2_CH"/>
+                <property name="com.jaspersoft.studio.table.style.detail" value="Table 2_TD"/>
+            </element>
+        </band>
+    </detail>
+    <pageFooter height="196" splitType="Stretch">
+        <element kind="staticText" uuid="3fbeb45f-a2da-4f91-8787-acf15b35426c" x="0" y="140" width="264" height="43">
+            <text><![CDATA[Resolución Factura Electrónica DIAN Formulario No. 18764077599615 de 21 Agosto de 2024 habilitada desde 5-7228977 hasta 5-1500000]]></text>
+        </element>
+        <element kind="image" uuid="2e0bcedc-124a-4579-9aef-242da17f6d87" x="438" y="112" width="80" height="18">
+            <expression><![CDATA["https://www.dian.gov.co/imagenes/logo_footer.png"]]></expression>
+        </element>
+        <element kind="staticText" uuid="a8e64cba-f2d0-4bd9-b091-3e9b40ccb190" x="350" y="46" width="70" height="20" fontSize="12.0" bold="true">
+            <text><![CDATA[Total:]]></text>
+        </element>
+        <element kind="staticText" uuid="ddcdd7b4-c529-469c-a0d9-ce5720b2049e" x="350" y="26" width="70" height="20" fontSize="12.0" bold="true">
+            <text><![CDATA[Total IVA:]]></text>
+        </element>
+        <element kind="staticText" uuid="ba714d07-756d-4306-9d7b-4b542cbf97af" x="350" y="6" width="70" height="20" fontSize="12.0" bold="true">
+            <text><![CDATA[Subtotal:]]></text>
+        </element>
+        <element kind="textField" uuid="0a5263a3-a022-47d6-8a1f-2c09a56b792b" x="420" y="6" width="117" height="20" fontSize="12.0" pattern="#0.00" hTextAlign="Left" vTextAlign="Top">
+            <expression><![CDATA[$V{Subtotal}]]></expression>
+        </element>
+        <element kind="textField" uuid="967fde65-3903-4e6a-8864-714763c11a06" x="420" y="26" width="117" height="20" fontSize="12.0" pattern="#0.00" hTextAlign="Left" vTextAlign="Top">
+            <expression><![CDATA[$V{totalIva}]]></expression>
+        </element>
+        <element kind="textField" uuid="806a02cc-5e5c-49c2-bf82-e5dd50af2f15" x="420" y="46" width="117" height="20" fontSize="12.0" pattern="#0.00" hTextAlign="Left" vTextAlign="Top">
+            <expression><![CDATA[$V{total}]]></expression>
+        </element>
+        <element kind="textField" uuid="b01be19c-d16d-4d36-82da-d42744a71e00" x="390" y="140" width="90" height="30" bold="true" hTextAlign="Right">
+            <expression><![CDATA["Página " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+        <element kind="textField" uuid="8ad30e25-4713-45ac-af2d-21d9bd9dad79" x="480" y="140" width="90" height="30" evaluationTime="Report" bold="true" hTextAlign="Left">
+            <expression><![CDATA[" de " + $V{PAGE_NUMBER}]]></expression>
+        </element>
+    </pageFooter>
+</jasperReport>
