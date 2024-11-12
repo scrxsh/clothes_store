@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Store</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <nav>
+        <div class="cont">
+            <img src="../images/logo.gif" class="logo">
+            <div class="search-bar" hidden>
+                <i class="fa-regular fa-magnifying-glass"></i>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="profile-ar" hidden>
+                <div class="theme-btn">
+                    <i class="fa-regular fa-sun active"></i>
+                    <i class="fa-regular fa-moon"></i>
+                </div>
+                <div class="profile" hidden>
+                    <div class="profile-photo">
+                        <img src="../images/profile-1.jpg">
+                    </div>
+                    <h5>User</h5>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <button id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!--FIN NAVBAR-->
+    <main>
+        <aside>
+                <button id="close-btn">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+                <div class="sidebar">
+                    <a href="index.html">
+                        <i class="fa-solid fa-grid-2"></i>
+                        <h4>Dashboard</h4>
+                    </a>
+                    <a href="products.html">
+                        <i class="fa-solid fa-shirt"></i>
+                        <h4>Productos</h4>
+                    </a>
+                    <a href="users.html">
+                        <i class="fa-solid fa-user"></i>
+                        <h4>Usuarios</h4>
+                    </a>
+                    <a href="providers.html" class="active">
+                        <i class="fa-solid fa-truck"></i>
+                        <h4>Proveedores</h4>
+                    </a>
+                    <a href="sells.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <h4>Ventas</h4>
+                    </a>
+                    <a href="analytics.html">
+                        <i class="fa-solid fa-chart-pie-simple"></i>
+                        <h4>Analytics</h4>
+                    </a>
+                    <!--
+                    <a href="#">
+                        <i class="fa-solid fa-square-question"></i>
+                        <h4>Ayuda</h4>
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        <h4>Configuración</h4>
+                    </a>
+                    -->
+                </div>
+        </aside>
+            <section>
+                <div class="flex justify-between gap-2.5 mb-4">
+                    <h1 class="text-4xl text-center font-extrabold">Proveedores</h1>
+                    <button class="comic-button" onclick="agregarProveedor('modalProvider')">Agregar +</button>
+                </div>                
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-left  text-gray-500">
+                            <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">ID</th>
+                                    <th scope="col" class="px-6 py-3">Nombre de la empresa</th>
+                                    <th scope="col" class="px-6 py-3">Encargado</th>
+                                    <th scope="col" class="px-6 py-3">Teléfono</th>
+                                    <th scope="col" class="px-6 py-3">Correo</th>
+                                    <th scope="col" class="px-6 py-3">Dirección</th>
+                                    <th class="col" class="px-6 py-3">Acciones</th>
+                                    
+                                </tr>
+                            </thead>
+                        <tbody id="tBody"></tbody>
+                        </table>
+                    </div>
+            </section>
+        <div id="modalProvider" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center md:inset-0 h-[calc(100%-2rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <div class="relative bg-white rounded-lg shadow">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-lg font-semibold text-gray-900">Crear o actualizar proveedor</h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-lg w-8 h-8 ms-auto inline-flex justify-center items-center" onclick="closeModal('modalProvider')">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/></svg>
+                                <span class="sr-only">Cancelar</span>
+                            </button>
+                    </div>
+                    <form class="p-4 md:p-5" >
+                        <div class="grid gap-4 mb-4 grid-cols-2">
+                            <input type="text" id="actType" hidden>
+                            <input type="text" id="idEmpresa" hidden>
+                            <div class="col-span-2">
+                                <label for="nombreEmpresa" class="block mb-2 text-lg font-medium text-gray-900">Nombre de la empresa</label>
+                                <input type="text" id="nombreEmpresa" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Escribe el nombre de la empresa">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="nombreEncargado" class="block mb-2 text-lg font-medium text-gray-900">Encargado de la empresa</label>
+                                <input type="text" id="nombreEncargado" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Escribe el nombre del encargado de la empresa">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="telefonoEncargado" class="block mb-2 text-lg font-medium text-gray-900">Teléfono</label>
+                                <input type="tel" id="telefonoEncargado" class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="(300) 1234567"  maxlength="10" pattern="3[0-9]{9}">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="emailEmpresa" class="block mb-2 text-lg font-medium text-gray-900">Correo Electronico</label>
+                                <input type="email" id="emailEmpresa" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="correo@example.com">
+                            </div>
+                            <div class="col-span-2">
+                                <label for="direccionEmpresa" class="block mb-2 text-lg font-medium text-gray-900">Dirección de la empresa</label>
+                                <input type="text" id="direccionEmpresa" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Escribe la dirección de la empresa" required="">
+                            </div>
+                        </div>
+                        <button  class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center" onclick="validacionFormulario()" >Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="deleteModal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow">
+                    <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" onclick="closeModal('deleteModal')">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Cancelar</span>
+                    </button>
+                    <div class="p-4 md:p-5 text-center">
+                        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500">¿Estas seguro de eliminar este proveedor?</h3>
+                        <button onclick="action()" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                            Si, estoy seguro
+                        </button>
+                        <button onclick="closeModal('deleteModal')" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                            No, cancelar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../scripts/providers.js"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

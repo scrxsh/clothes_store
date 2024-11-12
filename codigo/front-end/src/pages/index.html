@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Store</title>
+    <!--Estilos-->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <nav>
+        <div class="cont">
+            <img src="../images/logo.gif" class="logo">
+            <div class="search-bar" hidden>
+                <i class="fa-regular fa-magnifying-glass"></i>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="profile-ar" hidden>
+                <div class="theme-btn">
+                    <i class="fa-regular fa-sun active"></i>
+                    <i class="fa-regular fa-moon"></i>
+                </div>
+                <div class="profile" hidden>
+                    <div class="profile-photo">
+                        <img src="../images/profile-1.jpg">
+                    </div>
+                    <h5>User</h5>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <button id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!--FIN NAVBAR-->
+    <main>
+        <aside>
+            <button id="close-btn">
+                <i class="fa-solid fa-xmark fa-xl"></i>
+            </button>
+            <div class="sidebar">
+                <a href="index.html" class="active">
+                    <i class="fa-solid fa-grid-2"></i>
+                    <h4>Dashboard</h4>
+                </a>
+                <a href="products.html">
+                    <i class="fa-solid fa-shirt"></i>
+                    <h4>Productos</h4>
+                </a>
+                <a href="users.html">
+                    <i class="fa-solid fa-user"></i>
+                    <h4>Usuarios</h4>
+                </a>
+                <a href="providers.html">
+                    <i class="fa-solid fa-truck"></i>
+                    <h4>Proveedores</h4>
+                </a>
+                <a href="sells.html">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h4>Ventas</h4>
+                </a>
+                <a href="analytics.html">
+                    <i class="fa-solid fa-chart-pie-simple"></i>
+                    <h4>Analytics</h4>
+                </a>
+                <!--
+                <a href="#">
+                    <i class="fa-solid fa-square-question"></i>
+                    <h4>Ayuda</h4>
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <h4>Configuración</h4>
+                </a>
+                -->
+            </div>
+        </aside>
+        <section class="d-flex items-center">
+            <h1 class="text-4xl text-center font-extrabold my-6">Ventas en los ultimos años</h1>
+            <canvas id="chart"></canvas>
+            <div class="grid gap-4 grid-cols-2">
+                <div class="relative overflow-x-auto">
+                    <h1 class="text-2xl text-center font-extrabold my-6">Compras de los clientes</h1>
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-lg text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-4 py-2">Cliente</th>
+                                <th scope="col" class="px-4 py-2">Productos Comprados</th>
+                                <th scope="col" class="px-4 py-2">Categoria más comprada</th>
+                                <th scope="col" class="px-4 py-2">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Wilson Gutierrez</th>
+                                <td class="px-4 py-2">2</td>
+                                <td class="px-4 py-2">Zapatos</td>
+                                <td class="px-4 py-2">29/03/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Juan Pérez</th>
+                                <td class="px-4 py-2">10</td>
+                                <td class="px-4 py-2">Camisetas</td>
+                                <td class="px-4 py-2">30/03/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">María Gómez</th>
+                                <td class="px-4 py-2">9</td>
+                                <td class="px-4 py-2">Zapatos</td>
+                                <td class="px-4 py-2">31/03/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Carlos Sánchez</th>
+                                <td class="px-4 py-2">4</td>
+                                <td class="px-4 py-2">Zapatos</td>
+                                <td class="px-4 py-2">1/04/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Ana Martínez</th>
+                                <td class="px-4 py-2">4</td>
+                                <td class="px-4 py-2">Pantalones</td>
+                                <td class="px-4 py-2">2/04/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Pedro López</th>
+                                <td class="px-4 py-2">10</td>
+                                <td class="px-4 py-2">Ropa Formal</td>
+                                <td class="px-4 py-2">3/04/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Luisa Fernández</th>
+                                <td class="px-4 py-2">3</td>
+                                <td class="px-4 py-2">Camisetas</td>
+                                <td class="px-4 py-2">4/04/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Jorge Ramírez</th>
+                                <td class="px-4 py-2">8</td>
+                                <td class="px-4 py-2">Ropa Formal</td>
+                                <td class="px-4 py-2">5/04/2023</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">Carmen Torres</th>
+                                <td class="px-4 py-2">4</td>
+                                <td class="px-4 py-2">Zapatos</td>
+                                <td class="px-4 py-2">6/04/2023</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="relative overflow-x-auto">
+                    <h1 class="text-2xl text-center font-extrabold my-6">Analisis de compras</h1>
+                    <table class="w-full text-sm text-left text-gray-500">
+                        <thead class="text-lg text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-4 py-2">Moda</th>
+                                <th scope="col" class="px-4 py-2">Prom. de compras</th>
+                                <th scope="col" class="px-4 py-2">Categoria más comprada</th>
+                                <th scope="col" class="px-4 py-2">Prob. de comprar más de 3 productos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">10</th>
+                                <td class="px-4 py-2">4</td>
+                                <td class="px-4 py-2">Zapatos</td>
+                                <td class="px-4 py-2">77,78%</td>
+                            </tr>                  
+                        </tbody>
+                    </table>
+                    <h1 class="text-2xl text-center font-extrabold my-2">Analisis de categoria</h1>
+                    <div class="h-[290px] w-[290px] mx-auto bg-white rounded-2xl">
+                        <canvas id="pastel"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
