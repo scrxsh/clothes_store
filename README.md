@@ -1,11 +1,13 @@
-# clothes_store
-El proyecto se enfocará en la gestión de ventas de una tienda de ropa. 
+# Sistema de Gestión de Ventas en Java con SpringBoot
+En el siguiente repositorio se encuentra el codigo fuente del proyecto "Sistema de gestión de ventas con analisis predictivo y machine learning", que esta en desarrollo en el lenguaje Java con su aclamado framework "SpringBoot", con el añadido de una red neuronal.
 
 # Modulos del proyecto:
 
-- **Ventas ->**  Apartado donde se registran las compras del usuario y realizan. 
-- **Inventario ->** Apartado donde se registran, se eliminan y se modifican las existencias de la ropa y accesorios.
-- **Usuarios ->** Apartado donde se registran los usuarios tanto de vendedores y proveedores
+
+- **Inventario ->** Apartado donde se registran, se eliminan y se modifican las existencias.
+- **Usuarios ->** Apartado donde se registran los usuarios tanto de vendedores, proveedores y los clientes finales.
+- **Ventas ->**  Apartado donde se registran las compras del usuario y se genera su respectiva facturación electronica de acuerdo a las normas contables en Colombia.
+- **Modelo de ventas esperadas ->** Modulo donde se genera un modelo de red neuronal que determine la cantidad de ventas de cierto producto de acuerdo a datos historicos.  
 
 # Diseño inicial
 **Aplicación web cuyas funcionalidades son:**
